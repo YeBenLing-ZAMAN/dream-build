@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import FeaturedCategory from "@/components/FeaturedCategory/FeaturedCategory";
 import FeaturedProduct from "@/components/FeaturedProduct/FeaturedProduct";
 import RootLayout from "@/components/Layouts/RootLayouts";
 import { env } from "@/env";
@@ -8,6 +9,7 @@ export default function Home({ randomProducts }) {
     <div className="md:max-w-[80vw] mx-auto">
       <Banner />
       <FeaturedProduct randomProducts={randomProducts}></FeaturedProduct>
+      <FeaturedCategory />
     </div>
   );
 }
