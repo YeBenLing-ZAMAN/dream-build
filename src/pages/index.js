@@ -4,7 +4,7 @@ import RootLayout from "@/components/Layouts/RootLayouts";
 
 export default function Home({ randomProducts }) {
   return (
-    <div className="max-w-[80vw] mx-auto">
+    <div className="md:max-w-[80vw] mx-auto">
       <Banner />
       <FeaturedProduct randomProducts={randomProducts}></FeaturedProduct>
     </div>
@@ -17,7 +17,7 @@ function getRandomItemsFromArray(arr, numberOfItems) {
 }
 
 export const getStaticProps = async () => {
-  const url = "http://localhost:5001/products";
+  const url = "http://pc-builder-backend-g8wx.onrender.com/products";
   const res = await fetch(url);
   const data = await res.json();
   const randomProducts = getRandomItemsFromArray(data, 8);
