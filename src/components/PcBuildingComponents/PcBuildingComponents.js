@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function PcBuildingComponents({ product, selectedProducts }) {
-  console.log(product);
-  console.log(selectedProducts);
+  // console.log(product);
+  // console.log(selectedProducts);
 
   let Items;
 
@@ -17,9 +17,9 @@ export default function PcBuildingComponents({ product, selectedProducts }) {
   return (
     <div className="border min-h-[150px] px-2 md:px-0">
       <div className="flex gap-x-6 justify-evenly items-center min-h-[150px]">
-        <p className="text-8xl">{product.icon}</p>
+        <p className="text-8xl hidden md:block">{product.icon}</p>
         <div className="w-2/3">
-          <p className="text-lg md:text-2xl">
+          <p className="md:text-lg md:text-2xl">
             {product.name}{" "}
             <span className="bg-red-500 px-2 md:px-4 md:py-0.5 md:rounded text-sm text-white ">
               Required

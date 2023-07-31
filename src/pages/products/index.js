@@ -1,4 +1,5 @@
-import ProductCard from "@/components/FeaturedProduct/ProductCard";
+import HorizontalProductCard from "@/components/FeaturedProduct/HorizontalProductCard";
+// import ProductCard from "@/components/FeaturedProduct/ProductCard";
 import RootLayout from "@/components/Layouts/RootLayouts";
 import { env } from "@/env";
 
@@ -8,10 +9,13 @@ export default function CategoryWiseProduct({ category, data }) {
       <h1 className="text-center text-3xl font-semibold capitalize mb-12">
         catagories: <span>{category}</span>
       </h1>
-      <div className="grid md:grid-cols-5 gap-2 md:gap-4 ">
+      <div className="min-h-screen">
         {data &&
           data.map((product) => (
-            <ProductCard key={product._id} product={product}></ProductCard>
+            <HorizontalProductCard
+              key={product._id}
+              product={product}
+            ></HorizontalProductCard>
           ))}
       </div>
     </div>
