@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import FeaturedProduct from "@/components/FeaturedProduct/FeaturedProduct";
 import RootLayout from "@/components/Layouts/RootLayouts";
+import { env } from "@/env";
 
 export default function Home({ randomProducts }) {
   return (
@@ -17,8 +18,7 @@ function getRandomItemsFromArray(arr, numberOfItems) {
 }
 
 export const getStaticProps = async () => {
-  const url = "http://pc-builder-backend-g8wx.onrender.com/products";
-  const res = await fetch(url);
+  const res = await fetch(`${env.BASE_URL}/products`);
   const data = await res.json();
   const randomProducts = getRandomItemsFromArray(data, 8);
   return {
