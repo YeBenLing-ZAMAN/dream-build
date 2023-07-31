@@ -1,3 +1,12 @@
+import Footer from "../Footer/Footer";
+import Navbar from "../navbar/Navbar";
+
 export default function RootLayout({ children }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Navbar></Navbar>
+      {children}
+      <Footer></Footer>
+    </div>
+  );
 }
