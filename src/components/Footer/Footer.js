@@ -6,7 +6,6 @@ import {
   BsTwitter,
   BsYoutube,
 } from "react-icons/bs";
-import { RiFacebookBoxFill, RiInstagramLine } from "react-icons/ri";
 
 export default function Footer() {
   const date = new Date();
@@ -18,8 +17,6 @@ export default function Footer() {
           <div className="mb-5 sm:mb-0 sm:mr-10">
             <Link href={"/"}>DREAM-BUILD</Link>
             <div className="flex mt-5 gap-2 text-2xl">
-              <RiFacebookBoxFill />
-              <RiInstagramLine />
               <BsFacebook />
               <BsInstagram />
               <BsPinterest />

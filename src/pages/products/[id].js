@@ -73,7 +73,7 @@ export default function ProductDetails({ product }) {
           </div>
           <div className="w-full mt-5">
             <button
-              className="w-full border-4 px-6 border-[#52ab98] text-[#52ab98] font-semibold text-lg hover:bg-[#52ab98] hover:text-[#fff]"
+              className="w-full border-4 px-6 font-semibold text-lg border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
               onClick={() => handleProduct(product)}
             >
               Add To Builder
