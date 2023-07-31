@@ -1,9 +1,8 @@
 import ProductCard from "./ProductCard";
 
 export default function FeaturedProduct({ randomProducts }) {
-  // console.log(randomProducts)
   return (
-    <div className="m-6 md:m-12  ">
+    <div className="m-6 md:m-12">
       <h1 className="text-center text-4xl mb-2 font-semibold">
         Featured <span className="text-[#52ab98]">Products</span>
       </h1>

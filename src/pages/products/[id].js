@@ -19,9 +19,9 @@ export default function ProductDetails({ product }) {
   } = product;
 
   return (
-    <div className="md:max-w-[80vw] mx-auto  min-h-[80vh]">
+    <div className="md:max-w-[80vw] mx-auto min-h-[80vh]">
       <div className="md:flex m-4 md:m-16 gap-y-2 md:gap-x-4">
-        <div className="w-full md:w-1/2 border-[3px] border-[#52ab98]">
+        <div className="w-full md:w-1/2 border-[2px] border-[#52ab98]">
           <Image
             src={image}
             className="w-full md:max-h-[370px]"
