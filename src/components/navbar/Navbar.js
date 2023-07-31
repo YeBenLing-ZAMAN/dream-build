@@ -7,7 +7,7 @@ export default function Navbar() {
     <div className="border bg-white p-4 flex justify-around">
       <div className="flex justify-center">
         <Link href={"/"} className="text-black hover:text-[#2b6777]">
-          PC-BUILD
+          DREAM-BUILD
         </Link>
       </div>
       <nav className="text-gray-900 flex justify-center gap-x-6 text-md">

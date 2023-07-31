@@ -1,14 +1,32 @@
 import Banner from "@/components/Banner";
+import FeaturedProduct from "@/components/FeaturedProduct/FeaturedProduct";
 import RootLayout from "@/components/Layouts/RootLayouts";
-import { Calendar } from "antd";
 
-export default function Home() {
+export default function Home({ randomProducts }) {
   return (
     <div className="max-w-[80vw] mx-auto">
-      <Banner />;<h1>home page</h1>;
+      <Banner />
+      <FeaturedProduct randomProducts={randomProducts}></FeaturedProduct>
     </div>
   );
 }
+
+function getRandomItemsFromArray(arr, numberOfItems) {
+  const shuffled = arr.sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, numberOfItems);
+}
+
+export const getStaticProps = async () => {
+  const url = "http://localhost:5001/products";
+  const res = await fetch(url);
+  const data = await res.json();
+  const randomProducts = getRandomItemsFromArray(data, 8);
+  return {
+    props: {
+      randomProducts,
+    },
+  };
+};
 
 Home.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;

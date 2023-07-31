@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="max-w-[80vw] mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-start justify-between md:items-center">
           <div className="mb-5 sm:mb-0 sm:mr-10">
-            <Link href={"/"}>PC-BUILD</Link>
+            <Link href={"/"}>DREAM-BUILD</Link>
             <div className="flex mt-5 gap-2 text-2xl">
               <RiFacebookBoxFill />
               <RiInstagramLine />
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row mt-10 sm:mt-10 gap-1 md:gap-10">
-          <p>&#169; PC-BUILD {year}</p>
+          <p>&#169; DREAM-BUILD {year}</p>
           <p className="mt-5 sm:mt-0">Privacy Policy</p>
           <p className="mt-5 sm:mt-0">Terms & Condition</p>
         </div>
