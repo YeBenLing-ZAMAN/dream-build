@@ -2,7 +2,6 @@ import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import Link from "next/link";
-//href={`/products?category=`}
 const items = [
   {
     label: (
@@ -60,7 +59,7 @@ const DropdownButton = () => (
     }}
   >
     <a
-      className="cursor-pointer hover:text-[#5CE1E6]"
+      className="cursor-pointer hover:text-[#2b6777]"
       onClick={(e) => e.preventDefault()}
     >
       <Space>
