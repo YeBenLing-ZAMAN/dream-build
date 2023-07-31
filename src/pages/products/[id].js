@@ -3,8 +3,20 @@ import StarRatings from "react-star-ratings";
 import Image from "next/image";
 import { Avatar, Space } from "antd";
 import { env } from "@/env";
+import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
+import { useRouter } from "next/router";
 
 export default function ProductDetails({ product }) {
+  const router = useRouter();
+  const [postProduct, { isLoading }] = usePostProductInPcBuilderMutation();
+
+  const handleProduct = (product) => {
+    postProduct(product);
+
+    alert("Successfully added product");
+    router.push("/pcBuilder");
+  };
+
   const {
     averageRating,
     brand,
@@ -17,6 +29,10 @@ export default function ProductDetails({ product }) {
     reviews,
     status,
   } = product;
+
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
 
   return (
     <div className="md:max-w-[80vw] mx-auto min-h-[80vh]">
@@ -95,9 +111,9 @@ export default function ProductDetails({ product }) {
             </Space>
             <p>
               I purchased the MSI GF63 THIN 11SC Core i5 11th Gen GTX 1650 4GB
-              Graphics 15.6" FHD Gaming Laptop last one week ago. The product
-              was genuine and intact. This product has 8GB DDR4 3200MHz RAM if
-              you want you can add an extra ram slot and also has 02 years
+              Graphics 15.6 FHD Gaming Laptop last one week ago. The product was
+              genuine and intact. This product has 8GB DDR4 3200MHz RAM if you
+              want you can add an extra ram slot and also has 02 years
               International Warranty.
             </p>
           </div>
