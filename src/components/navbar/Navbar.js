@@ -5,14 +5,22 @@ import { useSession, signOut } from "next-auth/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth.js";
 import { signOut as signOutFireBase } from "firebase/auth";
+import {
+  removeFromLocalStorage,
+  saveToLocalStorage,
+} from "@/utils/localStorage";
+import { useState } from "react";
 
 export default function Navbar() {
   const { data: session } = useSession();
-
+  if (session?.user) {
+    saveToLocalStorage("user-info", session?.user?.email);
+  }
   const [user, loading, error] = useAuthState(auth);
-  console.log(user, session);
+  console.log(user, session?.user);
   const logout = () => {
     signOutFireBase(auth);
+    removeFromLocalStorage("user-info");
   };
 
   return (

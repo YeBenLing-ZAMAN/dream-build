@@ -65,7 +65,7 @@ export default function PcBuildingComponents({ product, selectedProducts }) {
         {!Items?.length ? (
           <Link
             href={`/products?category=${product.name}`}
-            className="border px-4 md:px-8 md:text-2xl py-2 hover:text-[#53f4fa] hover:bg-black transition delay-150 duration-300"
+            className="border px-4 md:px-8 md:text-2xl py-2 border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
           >
             Select
           </Link>
