@@ -4,9 +4,10 @@ _A simple e-commerce, pc-building, pc-component details system powered by next.j
 
 ### Description
 
-- Users can listing their books and share, and rating, reviewing other books.
-- users can add books on their wishlist and read soon page.
-- Users can login custom authentication or google Oauth authentication.
+- PC Builder website for PC parts and components using Next.js
+- select component and build your own pc.
+- SSG implementation,SSR implementation, client side rendering with redux-toolkit.
+- Next-Auth and firebase for authentication
 
 ### Languages/Technologies (Frontend)
 
