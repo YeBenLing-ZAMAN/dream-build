@@ -46,7 +46,7 @@ export default function PCBuilder() {
   };
 
   const totalCost = data?.data
-    ?.map((item) => item.price)
+    ?.map((item) => parseFloat(item.price))
     .reduce((acc, item) => acc + item, 0);
 
   if (isLoading) {
