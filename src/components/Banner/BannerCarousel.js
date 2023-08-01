@@ -50,14 +50,13 @@ const BannerCarousel = () => (
             style={{
               fontSize: "20px",
               margin: "20px 0px",
-              backgroundColor: "black",
-              color: "white",
               width: "168px",
               padding: "2px 5px ",
               fontWeight: "300",
               letterSpacing: "3px",
               cursor: "pointer",
             }}
+            className="border border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
           >
             Build pc <ArrowRightOutlined />
           </a>
@@ -105,14 +104,13 @@ const BannerCarousel = () => (
             style={{
               fontSize: "20px",
               margin: "20px 0px",
-              backgroundColor: "black",
-              color: "white",
               width: "168px",
               padding: "2px 5px ",
               fontWeight: "300",
               letterSpacing: "3px",
               cursor: "pointer",
             }}
+            className="border border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
           >
             BUILD PC <ArrowRightOutlined />
           </a>
