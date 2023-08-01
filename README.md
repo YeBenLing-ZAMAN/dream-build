@@ -1,4 +1,4 @@
-# [Dream Build]()
+# [Dream Build](https://dream-build-9bkas06ce-yebenling-zaman.vercel.app/)
 
 _A simple e-commerce, pc-building, pc-component details system powered by next.js_
 
@@ -25,7 +25,7 @@ _A simple e-commerce, pc-building, pc-component details system powered by next.j
 
 ### Run
 
-Then, to spawn clients, go to the [client](./frontend/) directory and execute the following commands:
+Then, to spawn clients, go to the directory and execute the following commands:
 
 ```
 $ yarn
