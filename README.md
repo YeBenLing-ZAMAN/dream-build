@@ -1,4 +1,4 @@
-# [Dream Build](https://dream-build-9bkas06ce-yebenling-zaman.vercel.app/)
+# [Dream Build](https://dream-build.vercel.app/)
 
 _A simple e-commerce, pc-building, pc-component details system powered by next.js_
 
