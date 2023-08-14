@@ -9,7 +9,7 @@ export default function FeaturedProduct({ randomProducts }) {
       <p className="text-center text-xl mb-10">
         Check & Get Your Desired Product!
       </p>
-      <div className="grid md:grid-cols-5 gap-2 md:gap-4 ">
+      <div className="flex flex-wrap gap-3 justify-center">
         {randomProducts &&
           randomProducts.map((product) => (
             <ProductCard key={product._id} product={product}></ProductCard>
