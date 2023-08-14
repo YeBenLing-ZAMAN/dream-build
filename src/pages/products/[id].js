@@ -5,11 +5,12 @@ import { Avatar, Space } from "antd";
 import { env } from "@/env";
 import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
 import { useRouter } from "next/router";
+import Comment from "@/components/Comment";
 
 export default function ProductDetails({ product }) {
   const router = useRouter();
   const [postProduct, { isLoading }] = usePostProductInPcBuilderMutation();
-
+  console.log(product);
   const handleProduct = (product) => {
     postProduct(product);
 
@@ -28,7 +29,8 @@ export default function ProductDetails({ product }) {
     productName,
     reviews,
     status,
-  } = product;
+    comment,
+  } = product[0];
 
   if (isLoading) {
     return <p>Loading</p>;
@@ -40,7 +42,7 @@ export default function ProductDetails({ product }) {
         <div className="w-full md:w-1/2 border-[2px] border-[#52ab98]">
           <Image
             src={image}
-            className="w-full md:max-h-[370px]"
+            className="object-cover object-center w-full h-full block"
             alt="image"
             width={500}
             height={500}
@@ -98,25 +100,8 @@ export default function ProductDetails({ product }) {
         </div>
       </div>
       <div className="mt-10 m-4 mb-16">
-        {[1, 2, 3, 4, 5]?.map(() => (
-          <div
-            key={1}
-            className="flex gap-3 items-center mb-5 pb-3 border-b-2 border-[#0B666A]"
-          >
-            <Space wrap size={16}>
-              <Avatar
-                size={50}
-                src="https://res.cloudinary.com/dpjht4etk/image/upload/v1689801515/avatar-7_mavjxk.jpg"
-              />
-            </Space>
-            <p>
-              I purchased the MSI GF63 THIN 11SC Core i5 11th Gen GTX 1650 4GB
-              Graphics 15.6 FHD Gaming Laptop last one week ago. The product was
-              genuine and intact. This product has 8GB DDR4 3200MHz RAM if you
-              want you can add an extra ram slot and also has 02 years
-              International Warranty.
-            </p>
-          </div>
+        {comment?.map((d, index) => (
+          <Comment key={index} comment={d}></Comment>
         ))}
       </div>
     </div>
@@ -142,6 +127,7 @@ export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(`${env.BASE_URL}/products/${params.id}`);
   const product = await res.json();
+  console.log(product);
 
   return {
     props: {
