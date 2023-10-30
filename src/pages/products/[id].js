@@ -10,7 +10,7 @@ import Comment from "@/components/Comment";
 export default function ProductDetails({ product }) {
   const router = useRouter();
   const [postProduct, { isLoading }] = usePostProductInPcBuilderMutation();
-  console.log(product);
+  // console.log(product);
   const handleProduct = (product) => {
     postProduct(product);
 
@@ -127,7 +127,7 @@ export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(`${env.BASE_URL}/products/${params.id}`);
   const product = await res.json();
-  console.log(product);
+  // console.log(product);
 
   return {
     props: {
