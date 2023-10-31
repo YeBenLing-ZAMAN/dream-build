@@ -14,6 +14,7 @@ import {
 } from "@/utils/helper";
 import ReactMarkdown from "react-markdown";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
+import TopRateProducts from "@/components/RelatedProducts/TopRateProducts";
 
 export default function ProductDetails({ product, relatedProducts }) {
   const router = useRouter();
@@ -33,6 +34,7 @@ export default function ProductDetails({ product, relatedProducts }) {
     image,
     model,
     price,
+    originalPrice = 300,
     productName,
     reviews,
     status,
@@ -61,7 +63,7 @@ export default function ProductDetails({ product, relatedProducts }) {
               <div className="md:flex grid gap-y-4 md:gap-3 mt-4 text-lg">
                 <p
                   className={`text-center font-semibold text-[#52ab98] rounded ${
-                    status === "In Stock" ? "text-[#52ab98]" : "text-[#ab5252]"
+                    status === "In Stock" ? "text-[#52ab98]" : "text-[#ff595e]"
                   }`}
                 >
                   {status}
@@ -71,13 +73,13 @@ export default function ProductDetails({ product, relatedProducts }) {
                 <p className="mr-2 text-lg font-semibold">
                   MRP : &#2547;{price}
                 </p>
-                {price && (
+                {originalPrice && (
                   <>
                     <p className="text-base font-medium line-through">
-                      &#2547;{price}
+                      &#2547;{originalPrice}
                     </p>
                     <p className="ml-auto text-base font-medium text-green-500">
-                      {getDiscountedPricePercentage(price, price)}% off
+                      {getDiscountedPricePercentage(originalPrice, price)}% off
                     </p>
                   </>
                 )}
@@ -147,10 +149,13 @@ export default function ProductDetails({ product, relatedProducts }) {
           <div>
             <RelatedProducts relatedProducts={relatedProducts} />
           </div>
-          <div className="mt-10 m-4 mb-16">
-            {comment?.map((d, index) => (
-              <Comment key={index} comment={d}></Comment>
-            ))}
+          <div className="mt-16 m-4 mb-16 flex flex-col md:flex-row gap-10">
+            <div className="flex-1">
+              {comment?.map((d, index) => (
+                <Comment key={index} comment={d}></Comment>
+              ))}
+            </div>
+            <TopRateProducts topRatedProducts={relatedProducts} />
           </div>
         </div>
       </Wrapper>
@@ -186,7 +191,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       product,
-      relatedProducts
+      relatedProducts,
     },
   };
 };
