@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const TopRateProducts = ({ topRatedProducts }) => {
   return (
-    <div className="min-h-[280px] h-fit border-1 rounded shadow-md p-2">
+    <div className="min-h-[280px] h-fit border-1 rounded shadow-md p-2 mx-auto">
       <div className="text-2xl font-bold mb-5">Top Rated Products</div>
       {topRatedProducts.length > 0 ? (
         topRatedProducts?.slice(0, 5)?.map((product) => (

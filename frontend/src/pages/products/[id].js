@@ -149,7 +149,7 @@ export default function ProductDetails({ product, relatedProducts }) {
           <div>
             <RelatedProducts relatedProducts={relatedProducts} />
           </div>
-          <div className="mt-16 m-4 mb-16 flex flex-col md:flex-row gap-10">
+          <div className="mt-16 m-4 mb-16 flex flex-col-reverse md:flex-row gap-10">
             <div className="flex-1">
               {comment?.map((d, index) => (
                 <Comment key={index} comment={d}></Comment>
