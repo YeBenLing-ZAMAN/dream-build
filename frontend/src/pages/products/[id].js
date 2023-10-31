@@ -8,10 +8,14 @@ import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
 import { useRouter } from "next/router";
 import Comment from "@/components/Comment";
 import ProductImageCarousel from "@/components/Carousel/ProductImageCarousel";
-import { getDiscountedPricePercentage } from "@/utils/helper";
+import {
+  getDiscountedPricePercentage,
+  getRandomItemsFromArray,
+} from "@/utils/helper";
 import ReactMarkdown from "react-markdown";
+import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 
-export default function ProductDetails({ product }) {
+export default function ProductDetails({ product, relatedProducts }) {
   const router = useRouter();
   const [postProduct, { isLoading }] = usePostProductInPcBuilderMutation();
   // console.log(product);
@@ -33,7 +37,7 @@ export default function ProductDetails({ product }) {
     reviews,
     status,
     comment,
-    description
+    description,
   } = product[0];
 
   if (isLoading) {
@@ -116,7 +120,7 @@ export default function ProductDetails({ product }) {
                   Add To Cart
                 </button>
                 <button
-                  className="w-fit border-2 px-4 font-semibold p-2 text-lg border-[#f72585] text-[#f72585] hover:bg-[#f72585] hover:text-[#fff]"
+                  className="w-fit border-2 px-4 font-semibold p-2 text-lg border-[#ff595e] text-[#ff595e] hover:bg-[#ff595e] hover:text-[#fff]"
                   onClick={() => alert("add to wish")}
                 >
                   <IoMdHeartEmpty size={24} />
@@ -131,12 +135,17 @@ export default function ProductDetails({ product }) {
                 </button>
               </div>
               <div>
-                <div className="mt-10 text-xl font-bold mb-5">Product Details</div>
+                <div className="mt-10 text-xl font-bold mb-5">
+                  Product Details
+                </div>
                 <div className="markdown text-lg mb-5">
                   <ReactMarkdown>{description}</ReactMarkdown>
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            <RelatedProducts relatedProducts={relatedProducts} />
           </div>
           <div className="mt-10 m-4 mb-16">
             {comment?.map((d, index) => (
@@ -170,9 +179,14 @@ export const getStaticProps = async (context) => {
   const product = await res.json();
   // console.log(product);
 
+  const resRelatedProducts = await fetch(`${env.BASE_URL}/products`);
+  const data = await resRelatedProducts.json();
+  const relatedProducts = getRandomItemsFromArray(data, 8);
+  // console.log(relatedProducts);
   return {
     props: {
       product,
+      relatedProducts
     },
   };
 };

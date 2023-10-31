@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
   const { _id, image, productName, category, price, status, averageRating } =
     product;
   return (
-    <div className="lg:w-1/5 md:w-1/3 sm:w-1/2 p-2 w-full shadow-md hover:shadow-2xl p-2 transition delay-100 duration-300 relative">
+    <div className="my-5 w-64 shadow-md hover:shadow-2xl p-2 transition delay-100 duration-300 relative">
       <Link href={`/products/${_id}`}>
         <div className="block h-48 rounded overflow-hidden">
           <Image
