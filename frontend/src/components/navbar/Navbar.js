@@ -10,6 +10,7 @@ import {
   saveToLocalStorage,
 } from "@/utils/localStorage";
 import { useState } from "react";
+import { BsCart } from "react-icons/bs";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -30,7 +31,7 @@ export default function Navbar() {
           DREAM-BUILD
         </Link>
       </div>
-      <nav className="text-gray-900 flex justify-center gap-x-6 text-md">
+      <nav className="text-gray-900 flex flex-wrap gap-y-4 justify-center gap-x-6 text-md">
         <Link href={"/"} className="hover:text-[#2b6777]">
           Home
         </Link>
@@ -40,6 +41,17 @@ export default function Navbar() {
         </Link>
         <p>|</p>
         <DropdownButton></DropdownButton>
+        <p>|</p>
+        <Link href="/cart">
+          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-start cursor-pointer relative">
+            <BsCart className="text-[15px] md:text-[20px]" />
+            {0 == 0 && (
+              <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-[-5px] left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
+                {0}
+              </div>
+            )}
+          </div>
+        </Link>
         <p>|</p>
         {session?.user ? (
           <Button
