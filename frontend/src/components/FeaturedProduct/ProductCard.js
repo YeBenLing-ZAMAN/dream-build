@@ -29,7 +29,7 @@ export default function ProductCard({ product }) {
             <p className="shadow-sm text-[#2b6777] bg-[#f2f2f2]  font-semibold">
               {category}
             </p>
-            <p className="shadow-sm text-red-500 font-semibold">${price}</p>
+            <p className="shadow-sm text-red-500 font-semibold">&#2547;{price}</p>
             <div className="flex gap-1 items-center justify-start">
               <Rating value={averageRating}></Rating>
               {/* <span className="d-block text-sm">({averageRating})</span> */}

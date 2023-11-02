@@ -30,7 +30,7 @@ const TopRateProducts = ({ topRatedProducts }) => {
                     {product.category}
                   </p>
                   <p className="text-end text-red-500 font-semibold whitespace-nowrap overflow-hidden overflow-ellipsis capitalize max-w-[150px]">
-                    ${product.price}
+                    &#2547;{product.price}
                   </p>
                 </div>
               </div>
