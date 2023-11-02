@@ -3,7 +3,6 @@ import "react-multi-carousel/lib/styles.css";
 import ProductCard from "../FeaturedProduct/ProductCard";
 
 const RelatedProducts = ({ relatedProducts }) => {
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -28,6 +27,10 @@ const RelatedProducts = ({ relatedProducts }) => {
       <div className="text-2xl font-bold mb-5">You Might Also Like</div>
       <Carousel
         responsive={responsive}
+        infinite={true}
+        autoPlaySpeed={1000}
+        swipeable={true}
+        draggable={true}
         containerClass="-mx-[10px]"
         itemClass="px-[10px]"
       >
