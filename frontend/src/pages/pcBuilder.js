@@ -73,10 +73,6 @@ export default function PCBuilder() {
         ))}
         <div>
           <div className="text-[#c8d9e4] bg-[#2b6777] min-h-[100px] my-4 p-4 flex justify-between items-center">
-            <p className="text-lg text-[#52ab98] md:text-2xl">
-              Total Cost:{" "}
-              <span className="font-semibold text-[#fff]">${totalCost}</span>
-            </p>
             {data?.data?.length < 6 ? (
               <button
                 className="px-2 md:px-4 border-4 py-2 md:text-xl cursor-not-allowed border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
@@ -92,6 +88,10 @@ export default function PCBuilder() {
                 Complete Build
               </button>
             )}
+            <p className="text-lg text-[#52ab98] md:text-2xl">
+              Total Cost:{" "}
+              <span className="font-semibold text-[#fff]">${totalCost}</span>
+            </p>
           </div>
         </div>
       </div>
