@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BsCpu, BsMotherboard, BsFillDiagram3Fill } from "react-icons/bs";
 import { GiPowerGenerator } from "react-icons/gi";
 import { MdStorage, MdMonitor } from "react-icons/md";
@@ -54,7 +53,7 @@ export default function PCBuilder() {
   }
   return (
     <div className="md:w-2/3 mx-auto my-12">
-      <div className="flex flex-col md:flex-row justify-evenly md:justify-between items-center min-h-[100px] text-[#c8d9e4] bg-[#2b6777] text-white px-2 md:px-4">
+      <div className="flex flex-col md:flex-row justify-evenly md:justify-between items-center min-h-[100px] text-[#c8d9e4] bg-[#2b6777] px-2 md:px-4">
         <div className="flex justify-center">
           <p>DREAM-BUILD</p>
         </div>
