@@ -6,7 +6,7 @@ const Comment = ({ comment }) => {
   return (
     <div
       key={1}
-      className="flex gap-3 items-center mb-5 pb-3 border-b-2 border-[#0B666A]"
+      className="flex gap-3 items-center mb-5 pb-3 border-b-2 border-[#0B666A] border-dashed"
     >
       <Space wrap size={16}>
         <Avatar size={50} src={image} />

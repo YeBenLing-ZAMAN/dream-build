@@ -3,20 +3,16 @@ import FeaturedCategory from "@/components/FeaturedCategory/FeaturedCategory";
 import FeaturedProduct from "@/components/FeaturedProduct/FeaturedProduct";
 import RootLayout from "@/components/Layouts/RootLayouts";
 import { env } from "@/env";
+import { getRandomItemsFromArray } from "@/utils/helper";
 
 export default function Home({ randomProducts }) {
   return (
     <div className="md:max-w-[80vw] mx-auto">
       <Banner />
-      <FeaturedProduct randomProducts={randomProducts}></FeaturedProduct>
+      <FeaturedProduct randomProducts={randomProducts} />
       <FeaturedCategory />
     </div>
   );
-}
-
-function getRandomItemsFromArray(arr, numberOfItems) {
-  const shuffled = arr.sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, numberOfItems);
 }
 
 export const getStaticProps = async () => {
