@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
             height={200}
           ></Image>
         </div>
-        <h3 className="text-gray-500 absolute top-2 left-2 p-1 backdrop-blur-xl text-stone-50 bg-red-500  text-xs tracking-widest title-font mb-1">
+        <h3 className="absolute top-2 left-2 p-1 backdrop-blur-xl text-stone-50 bg-red-500  text-xs tracking-widest title-font mb-1">
           #{status}
         </h3>
         <p className="text-xl font-semibold pl-2 py-2 whitespace-nowrap overflow-hidden overflow-ellipsis capitalize max-w-[200px]">
@@ -29,7 +29,9 @@ export default function ProductCard({ product }) {
             <p className="shadow-sm text-[#2b6777] bg-[#f2f2f2]  font-semibold">
               {category}
             </p>
-            <p className="shadow-sm text-red-500 font-semibold">&#2547;{price}</p>
+            <p className="shadow-sm text-red-500 font-semibold">
+              &#2547;{price}
+            </p>
             <div className="flex gap-1 items-center justify-start">
               <Rating value={averageRating}></Rating>
               {/* <span className="d-block text-sm">({averageRating})</span> */}

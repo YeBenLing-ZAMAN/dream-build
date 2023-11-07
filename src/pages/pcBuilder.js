@@ -89,7 +89,7 @@ export default function PCBuilder() {
             )}
             <p className="text-lg text-[#52ab98] md:text-2xl">
               Total Cost:{" "}
-              <span className="font-semibold text-[#fff]">${totalCost}</span>
+              <span className="font-semibold text-[#fff]">&#2547;{totalCost}</span>
             </p>
           </div>
         </div>

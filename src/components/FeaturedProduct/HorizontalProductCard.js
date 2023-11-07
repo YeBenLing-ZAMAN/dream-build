@@ -48,7 +48,7 @@ export default function HorizontalProductCard({ product }) {
         </div>
         <div className="flex flex-col items-center justify-between gap-3">
           <p className="md:border md:py-1 px-2 md:bg-gray-100 rounded-sm font-semibold">
-            ${price}
+            &#2547;{price}
           </p>
           <button
             className="border px-4 md:px-8 md:text-2xl py-2 border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
