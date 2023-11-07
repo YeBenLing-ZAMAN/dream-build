@@ -41,12 +41,12 @@ export default function FeaturedCategory() {
         Check & Get Your Desired Products catagories!
       </p>
       <div className="grid md:grid-cols-6 gap-2 md:gap-6 m-6 md:m-12 ">
-        {category.map((item) => {
+        {category.map((item, index) => {
           return (
             <Link
+              key={item.name}
               href={`/products?category=${item.name}`}
               className="border border-[#c8d9e4] rounded-md shadow-md grid justify-center p-10 hover:text-[#52ab98] transition delay-150 duration-300"
-              key={item.name}
             >
               <p className=" text-7xl flex justify-center pb-2 ">{item.icon}</p>
               <p className="text-xl text-center font-semibold">{item.name}</p>

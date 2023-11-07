@@ -30,7 +30,7 @@ const data = [
 const BannerCarousel = () => (
   <Carousel effect="fade" autoplay style={{ margin: "20px 0px" }}>
     {data?.map((item, index) => (
-      <div>
+      <div key={index}>
         <Row>
           <Col
             lg={{

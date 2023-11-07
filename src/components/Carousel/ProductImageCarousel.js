@@ -20,7 +20,12 @@ const ProductImageCarousel = ({ images }) => {
         className="productCarousel"
       >
         {imagesTwo?.map((img, i) => (
-          <img className="w-full h-full mx-auto object-cover object-center" key={i} src={img} alt={"img"} />
+          <img
+            key={i}
+            className="w-full h-full mx-auto object-cover object-center"
+            src={img}
+            alt={"img"}
+          />
         ))}
         {/* {imagesTwo?.map((img, i) => (
           <Image key={i} src={img} className="object-cover object-center w-full h-full block" alt="image" width={500} height={500} />
