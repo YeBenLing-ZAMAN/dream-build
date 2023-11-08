@@ -62,7 +62,7 @@ export default function ProductDetails({ product, relatedProducts }) {
               <p className="text-xl mt-2">{description}</p>
               <div className="md:flex grid gap-y-4 md:gap-3 mt-4 text-lg">
                 <p
-                  className={`text-center font-semibold text-[#52ab98] rounded ${
+                  className={`text-left font-semibold text-[#52ab98] rounded ${
                     status === "In Stock" ? "text-[#52ab98]" : "text-[#ff595e]"
                   }`}
                 >

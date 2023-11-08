@@ -19,7 +19,7 @@ export default function PcBuildingComponents({ product, selectedProducts }) {
       <div className="flex gap-x-6 justify-evenly items-center min-h-[150px]">
         <p className="text-8xl hidden md:block">{product.icon}</p>
         <div className="w-2/3">
-          <p className="md:text-lg md:text-2xl">
+          <p className="md:text-2xl">
             {product.name}{" "}
             <span className="bg-red-500 px-2 md:px-4 md:py-0.5 md:rounded text-sm text-white ">
               Required

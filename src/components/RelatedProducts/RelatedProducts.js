@@ -31,7 +31,7 @@ const RelatedProducts = ({ relatedProducts }) => {
         autoPlaySpeed={1000}
         swipeable={true}
         draggable={true}
-        containerClass="-mx-[10px]"
+        containerClass="-mx-[10px] mx-auto"
         itemClass="px-[10px]"
       >
         {relatedProducts.length > 0 &&
