@@ -20,7 +20,7 @@ export default function Navbar() {
     saveToLocalStorage("user-info", session?.user?.email);
   }
   const [user, loading, error] = useAuthState(auth);
-  console.log(user, session?.user);
+  // console.log(user, session?.user);
   const logout = () => {
     signOutFireBase(auth);
     removeFromLocalStorage("user-info");

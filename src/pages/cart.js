@@ -12,8 +12,6 @@ export default function Cart() {
   const [loading, setLoading] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
 
-  console.log(cartItems);
-
   const subTotal = useMemo(() => {
     return cartItems.reduce((total, val) => total + parseFloat(val.price), 0);
   }, [cartItems]);
@@ -61,7 +59,7 @@ export default function Cart() {
                     It does not include delivery costs and international
                     transaction fees.
                   </div>
-                  <div className="w-full flex gap-2 items-center justify-start">
+                  <div className="w-full flex gap-2 items-center justify-start pointer-events-none">
                     <input
                       className="flex-1 px-2 py-1 rounded shadow"
                       placeholder="coupon code please"
