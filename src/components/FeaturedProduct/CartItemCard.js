@@ -1,11 +1,13 @@
 import { updateCart, removeFromCart } from "@/redux/api/cartSlice";
 import { fixedFloatValue } from "@/utils/helper";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 const CartItemCard = ({ data }) => {
   const {
+    _id,
     brand,
     category,
     image,
@@ -30,17 +32,23 @@ const CartItemCard = ({ data }) => {
   return (
     <div className="flex py-5 gap-3 md:gap-5 border-b">
       {/* IMAGE START */}
-      <div className="shrink-0 aspect-square w-[50px] md:w-[120px]">
+      <Link
+        href={`/products/${_id}`}
+        className="shrink-0 aspect-square w-[50px] md:w-[120px]"
+      >
         <Image src={image} alt={model} width={120} height={120} />
-      </div>
+      </Link>
       {/* IMAGE END */}
 
       <div className="w-full flex flex-col">
         <div className="flex flex-col md:flex-row justify-between">
           {/* PRODUCT NAME */}
-          <div className="text-lg md:text-2xl font-semibold text-black/[0.8]">
+          <Link
+            href={`/products/${_id}`}
+            className="text-lg md:text-2xl font-semibold text-black/[0.8]"
+          >
             {productName}
-          </div>
+          </Link>
 
           {/* PRODUCT CATEGORY, BRAND, UNIT PRICE FOR LARGE DISPLAY */}
           <div className="flex gap-3">

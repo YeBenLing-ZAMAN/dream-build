@@ -30,7 +30,7 @@ export default function Cart() {
             </div>
 
             {/* CART CONTENT START */}
-            <div className="flex flex-col lg:flex-row gap-12 py-10">
+            <div className="flex flex-col lg:flex-row gap-12 py-10 relative">
               {/* CART ITEMS START */}
               <div className="flex-[2]">
                 <div className="text-lg font-bold">Cart Items</div>
@@ -41,9 +41,8 @@ export default function Cart() {
               {/* CART ITEMS END */}
 
               {/* SUMMARY of all product */}
-              <div className="flex-[1]">
+              <div className="flex-[1] h-fit sticky top-[50px]">
                 <div className="text-lg font-bold">Summary</div>
-
                 <div className="p-5 my-5 bg-black/[0.05] rounded shadow">
                   <div className="flex justify-between">
                     <div className="uppercase text-md md:text-lg font-medium text-black">
@@ -78,6 +77,7 @@ export default function Cart() {
                   Checkout
                   {loading && <Image fill src="/spinner.svg" alt="loading" />}
                 </button>
+
                 {/* BUTTON END */}
               </div>
               {/* SUMMARY END */}
