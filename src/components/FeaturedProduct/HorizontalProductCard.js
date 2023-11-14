@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
 import StarRatings from "react-star-ratings";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { fixedFloatValue } from "@/utils/helper";
 
 export default function HorizontalProductCard({ product }) {
   const router = useRouter();
@@ -60,7 +61,7 @@ export default function HorizontalProductCard({ product }) {
 
         <div className="p-2 flex flex-col items-center justify-between gap-3">
           <p className="md:border md:py-1 px-2 md:bg-gray-100 rounded-sm font-semibold">
-            &#2547;{price}
+            &#2547;{fixedFloatValue(price)}
           </p>
           <div className="flex gap-2 md:flex-col justify-between items-center md:justify-normal">
             <button

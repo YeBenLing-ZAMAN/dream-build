@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Comment from "@/components/Comment";
 import ProductImageCarousel from "@/components/Carousel/ProductImageCarousel";
 import {
+  fixedFloatValue,
   getDiscountedPricePercentage,
   getRandomItemsFromArray,
 } from "@/utils/helper";
@@ -29,8 +30,6 @@ export default function ProductDetails({ product, relatedProducts }) {
     alert("Successfully added product");
     router.push("/pcBuilder");
   };
-
-  console.log(product);
 
   const {
     averageRating,
@@ -76,12 +75,12 @@ export default function ProductDetails({ product, relatedProducts }) {
               </div>
               <div className="flex items-center mt-4 ">
                 <p className="mr-2 text-lg font-semibold">
-                  MRP : &#2547;{price}
+                  MRP : &#2547;{fixedFloatValue(price)}
                 </p>
                 {originalPrice && (
                   <>
                     <p className="text-base font-medium line-through">
-                      &#2547;{originalPrice}
+                      &#2547;{fixedFloatValue(originalPrice)}
                     </p>
                     <p className="ml-auto text-base font-medium text-green-500">
                       {getDiscountedPricePercentage(originalPrice, price)}% off

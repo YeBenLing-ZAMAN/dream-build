@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "../Rating/Rating";
+import { fixedFloatValue } from "@/utils/helper";
 
 export default function ProductCard({ product }) {
   // console.log(product)
@@ -30,7 +31,7 @@ export default function ProductCard({ product }) {
               {category}
             </p>
             <p className="shadow-sm text-red-500 font-semibold">
-              &#2547;{price}
+              &#2547;{fixedFloatValue(price)}
             </p>
             <div className="flex gap-1 items-center justify-start">
               <Rating value={averageRating}></Rating>
