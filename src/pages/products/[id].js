@@ -15,9 +15,12 @@ import {
 import ReactMarkdown from "react-markdown";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TopRateProducts from "@/components/RelatedProducts/TopRateProducts";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/api/cartSlice";
 
 export default function ProductDetails({ product, relatedProducts }) {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [postProduct, { isLoading }] = usePostProductInPcBuilderMutation();
   // console.log(product);
   const handleProduct = (product) => {
@@ -26,6 +29,8 @@ export default function ProductDetails({ product, relatedProducts }) {
     alert("Successfully added product");
     router.push("/pcBuilder");
   };
+
+  console.log(product);
 
   const {
     averageRating,
@@ -117,7 +122,14 @@ export default function ProductDetails({ product, relatedProducts }) {
               <div className="w-full mt-5 flex gap-5">
                 <button
                   className="w-full px-6 font-semibold p-2 text-lg bg-[#52ab98] text-[#fff] hover:bg-[#40a28d] hover:text-[#fff] transition-transform active:scale-95 hover:opacity-75 rounded shadow"
-                  onClick={() => alert("add to cart")}
+                  onClick={() => {
+                    dispatch(
+                      addToCart({
+                        ...product[0],
+                        oneQuantityPrice: price,
+                      })
+                    );
+                  }}
                 >
                   Add To Cart
                 </button>
