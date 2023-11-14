@@ -8,11 +8,18 @@ export default function Cart() {
   return (
     <div className="w-full md:py-20">
       <Wrapper>
+
+
+
+
+
+        {/* when there are no items in cart */}
         <div className="flex-[2] flex flex-col items-center pb-[50px] md:-mt-14">
           <Image
             src="/empty-cart.jpg"
             width={300}
             height={300}
+            alt="image"
             className="w-[300px] md:w-[400px]"
           />
           <span className="text-3xl font-bold">Your cart is empty</span>
@@ -23,7 +30,7 @@ export default function Cart() {
           </span>
           <Link
             href="/"
-            className="py-4 px-8 bg-[#2b6777] text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
+            className="py-4 px-8 bg-[#2b6777] rounded shadow text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
           >
             Continue Shopping
           </Link>
