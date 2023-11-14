@@ -116,13 +116,13 @@ export default function ProductDetails({ product, relatedProducts }) {
               </div>
               <div className="w-full mt-5 flex gap-5">
                 <button
-                  className="w-full px-6 font-semibold p-2 text-lg bg-[#52ab98] text-[#fff] hover:bg-[#40a28d] hover:text-[#fff]"
+                  className="w-full px-6 font-semibold p-2 text-lg bg-[#52ab98] text-[#fff] hover:bg-[#40a28d] hover:text-[#fff] transition-transform active:scale-95 hover:opacity-75 rounded shadow"
                   onClick={() => alert("add to cart")}
                 >
                   Add To Cart
                 </button>
                 <button
-                  className="w-fit border-2 px-4 font-semibold p-2 text-lg border-[#ff595e] text-[#ff595e] hover:bg-[#ff595e] hover:text-[#fff]"
+                  className="w-fit border-2 px-4 font-semibold p-2 text-lg border-[#ff595e] text-[#ff595e] hover:bg-[#ff595e] hover:text-[#fff] transition-transform active:scale-95 rounded shadow"
                   onClick={() => alert("add to wish")}
                 >
                   <IoMdHeartEmpty size={24} />
@@ -130,7 +130,7 @@ export default function ProductDetails({ product, relatedProducts }) {
               </div>
               <div className="w-full mt-5">
                 <button
-                  className="w-full border-2 px-6 font-semibold p-2 text-lg border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
+                  className="w-full border-2 px-6 font-semibold p-2 text-lg border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff] transition-transform active:scale-95 hover:opacity-75 rounded shadow"
                   onClick={() => handleProduct(product)}
                 >
                   Add To Builder Pc
