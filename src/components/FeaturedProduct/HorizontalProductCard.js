@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
 import StarRatings from "react-star-ratings";
 import { IoMdHeartEmpty } from "react-icons/io";

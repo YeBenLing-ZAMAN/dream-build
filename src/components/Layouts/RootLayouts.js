@@ -1,12 +1,14 @@
+import { navbarData } from "../../../data/navbarData";
 import Footer from "../Footer/Footer";
 import TopLoader from "../Loader/NextTopLoader";
-import Navbar from "../navbar/Navbar";
+import { NavbarPro } from "../navbar/NavbarPro";
 
 export default function RootLayout({ children }) {
+
   return (
     <div>
       <TopLoader />
-      <Navbar></Navbar>
+      <NavbarPro headerData={navbarData} />
       {children}
       <Footer></Footer>
     </div>

@@ -5,7 +5,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { Avatar, Space } from "antd";
 import { env } from "@/env";
 import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Comment from "@/components/Comment";
 import ProductImageCarousel from "@/components/Carousel/ProductImageCarousel";
 import {

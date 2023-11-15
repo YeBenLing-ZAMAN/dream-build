@@ -6,7 +6,7 @@ import styles from "@/styles/Login.module.css";
 import { signIn } from "next-auth/react";
 import { env } from "@/env";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import RootLayout from "@/components/Layouts/RootLayouts";
 import Link from "next/link";
 
