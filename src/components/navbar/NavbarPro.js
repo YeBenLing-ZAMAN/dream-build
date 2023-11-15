@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 import { BsCart } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { useSelector } from "react-redux";
-import { Button } from "antd";
+import { Avatar, Button } from "antd";
 import { useSession, signOut } from "next-auth/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth.js";
@@ -13,6 +13,10 @@ import {
   removeFromLocalStorage,
   saveToLocalStorage,
 } from "@/utils/localStorage";
+import {
+  DashboardDropContentWithLogout,
+  DashboardDropContentWithSignOut,
+} from "./DashboardDropContent";
 
 export const NavbarPro = ({ headerData }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -32,7 +36,7 @@ export const NavbarPro = ({ headerData }) => {
 
   return (
     <header className="py-1 border shadow">
-      <div className="container xl:max-w-[80vw] mx-auto px-5 sm:px-0">
+      <div className="container xl:max-w-[80vw] mx-auto py-2 xl:py-0 px-5 sm:px-0">
         <div className="grid grid-cols-12">
           <div className="col-span-3 flex items-center justify-start">
             <Link href={`/`} className="text-xl bold">
@@ -100,19 +104,9 @@ export const NavbarPro = ({ headerData }) => {
                 </Link>
               </li>
               {session?.user ? (
-                <Button
-                  onClick={() => signOut()}
-                  className="bg-red-500 text-[#fff] hover:bg-[#2b6777]"
-                >
-                  Sign Out
-                </Button>
+                <DashboardDropContentWithSignOut signOut={signOut} />
               ) : user?.email ? (
-                <Button
-                  onClick={() => logout()}
-                  className="bg-red-500 text-[#fff] hover:bg-[#2b6777]"
-                >
-                  Sign Out
-                </Button>
+                <DashboardDropContentWithLogout logout={logout} />
               ) : (
                 <Link href={"/login"} className="hover:text-[#fff]">
                   <button
@@ -156,6 +150,7 @@ export const NavbarPro = ({ headerData }) => {
           session={session}
           user={user}
           logout={logout}
+          signOut={signOut}
         />
       </div>
     </header>

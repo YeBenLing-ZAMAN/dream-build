@@ -2,6 +2,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BsCart } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
+import {
+  DashboardDropContentWithLogout,
+  DashboardDropContentWithSignOut,
+} from "./DashboardDropContent";
 
 const MobileNav = ({
   sidebarOpen,
@@ -11,6 +15,7 @@ const MobileNav = ({
   session,
   user,
   logout,
+  signOut,
 }) => {
   return (
     <nav>
@@ -41,49 +46,25 @@ const MobileNav = ({
                 />
               </svg>
             </div>
-            {/* logout button section */}
-            {session?.user ? (
-              <button
-                onClick={() => {
-                  signOut();
-                  setSidebarOpen(false);
-                }}
-                className="bg-red-500 text-[#fff] hover:bg-[#2b6777] px-2 py-1 transition-transform active:scale-95 hover:opacity-75 rounded shadow"
-              >
-                Sign Out
-              </button>
-            ) : user?.email ? (
-              <button
-                onClick={() => {
-                  logout();
-                  setSidebarOpen(false);
-                }}
-                className="bg-red-500 text-[#fff] hover:bg-[#2b6777] px-2 py-1 transition-transform active:scale-95 hover:opacity-75 rounded shadow"
-              >
-                Sign Out
-              </button>
-            ) : (
-              <Link href={"/login"} className="hover:text-[#fff]">
-                <button
-                  onClick={() => setSidebarOpen(false)}
-                  className="w-fit bg-[#52ab98] text-[#fff] hover:bg-[#2b6777] px-2 py-1 transition-transform active:scale-95 hover:opacity-75 rounded shadow"
-                >
-                  Sign In
-                </button>
-              </Link>
-            )}
-            {/*  menu lists */}
-            <div className="flex flex-col">
-              {headerData.map((item, index) => (
-                <SubMenu
-                  item={item}
-                  setSidebarOpen={setSidebarOpen}
-                  key={index}
-                  cartItems={cartItems}
-                />
-              ))}
-            </div>
             <div className="flex justify-start items-start gap-5">
+              {/* logout button section */}
+              {session?.user ? (
+                <DashboardDropContentWithSignOut
+                  size={"16"}
+                  signOut={signOut}
+                />
+              ) : user?.email ? (
+                <DashboardDropContentWithLogout size={"16"} logout={logout} />
+              ) : (
+                <Link href={"/login"} className="hover:text-[#fff]">
+                  <button
+                    type="dashed"
+                    className="bg-[#52ab98] text-[#fff] hover:bg-[#2b6777] px-2 py-1 transition-transform active:scale-95 hover:opacity-75 rounded shadow"
+                  >
+                    Sign In
+                  </button>
+                </Link>
+              )}
               <Link href="/cart">
                 <div className="w-full rounded-full cursor-pointer relative">
                   <BsCart className="text-[24px]" />
@@ -104,6 +85,18 @@ const MobileNav = ({
                   )}
                 </div>
               </Link>
+            </div>
+            
+            {/*  menu lists */}
+            <div className="flex flex-col">
+              {headerData.map((item, index) => (
+                <SubMenu
+                  item={item}
+                  setSidebarOpen={setSidebarOpen}
+                  key={index}
+                  cartItems={cartItems}
+                />
+              ))}
             </div>
           </div>
         </div>
