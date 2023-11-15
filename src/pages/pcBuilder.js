@@ -5,6 +5,7 @@ import { useGetPcBuilderProductsQuery } from "@/redux/api/apiSlice";
 import dynamic from "next/dynamic";
 import RootLayout from "@/components/Layouts/RootLayouts";
 import PcBuildingComponents from "@/components/PcBuildingComponents/PcBuildingComponents";
+import { fixedFloatValue, getDiscountDependOnPercentage } from "@/utils/helper";
 
 const categories = [
   {
@@ -41,7 +42,7 @@ export default function PCBuilder() {
   );
 
   const handleComplete = () => {
-    alert("Successfully Completed");
+    // alert("Successfully Completed");
   };
 
   const totalCost = data?.data
@@ -53,7 +54,7 @@ export default function PCBuilder() {
   }
   return (
     <div className="md:w-2/3 mx-auto my-12">
-      <div className="flex flex-col md:flex-row justify-evenly md:justify-between items-center min-h-[100px] text-[#c8d9e4] bg-[#2b6777] px-2 md:px-4">
+      <div className="flex flex-col md:flex-row rounded shadow justify-evenly md:justify-between items-center min-h-[100px] text-[#c8d9e4] bg-[#2b6777] px-2 md:px-4">
         <div className="flex justify-center">
           <p>DREAM-BUILD</p>
         </div>
@@ -81,16 +82,34 @@ export default function PCBuilder() {
               </button>
             ) : (
               <button
-                className="px-2 md:px-4 border-4 py-2 md:text-xl cursor-pointer border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff]"
+                className="px-2 md:px-4 border-2  py-2 md:text-xl cursor-pointer border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff] transition-transform active:scale-95 hover:opacity-85 rounded shadow"
                 onClick={() => handleComplete()}
               >
-                Complete Build
+                BUY NOW
               </button>
             )}
-            <p className="text-lg text-[#52ab98] md:text-2xl">
-              Total Cost:{" "}
-              <span className="font-semibold text-[#fff]">&#2547;{totalCost}</span>
-            </p>
+            <div className="text-right">
+              <p className="text-lg text-[#52ab98] md:text-xl">
+                Cost:{" "}
+                <span className="font-semibold text-[#fff]">
+                  &#2547;{fixedFloatValue(totalCost)}
+                </span>
+              </p>
+              <p className="text-lg text-[#52ab98] md:text-xl border-b-2 pb-2">
+                10% Discount:{" "}
+                <span className="font-semibold text-[#fff]">
+                  &#2547;{getDiscountDependOnPercentage(totalCost, 10)}
+                </span>
+              </p>
+              <p className="text-lg text-[#52ab98] md:text-xl">
+                Total:{" "}
+                <span className="font-semibold text-[#fff]">
+                  &#2547;
+                  {fixedFloatValue(totalCost) -
+                    getDiscountDependOnPercentage(totalCost, 10)}
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

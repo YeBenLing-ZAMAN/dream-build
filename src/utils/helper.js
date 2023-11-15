@@ -18,3 +18,11 @@ export const getRandomItemsFromArray = (arr, numberOfItems) => {
 export const fixedFloatValue = (value) => {
   return parseFloat(value).toFixed(2);
 };
+
+export const getDiscountDependOnPercentage = (
+  originalPrice,
+  percentage
+) => {
+  const discountPrice = (originalPrice * percentage) / 100;
+  return discountPrice.toFixed(2);
+};

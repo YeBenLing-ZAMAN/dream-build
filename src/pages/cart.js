@@ -103,7 +103,7 @@ export default function Cart() {
                 Go ahead and explore top categories.
               </span>
               <Link
-                href="/"
+                href="/products"
                 className="py-4 px-8 bg-[#2b6777] rounded shadow text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
               >
                 Continue Shopping

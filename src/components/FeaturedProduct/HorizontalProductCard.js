@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { usePostProductInPcBuilderMutation } from "@/redux/api/apiSlice";
 import StarRatings from "react-star-ratings";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { fixedFloatValue } from "@/utils/helper";
+import { fixedFloatValue, getDiscountedPricePercentage } from "@/utils/helper";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/api/cartSlice";
 
@@ -19,10 +19,17 @@ export default function HorizontalProductCard({ product }) {
     router.push("/pcBuilder");
   };
 
-  const { _id, image, productName, category, price, status, averageRating } =
-    product;
+  const {
+    _id,
+    image,
+    productName,
+    originalPrice,
+    price,
+    status,
+    averageRating,
+  } = product;
   return (
-    <div className="mx-5 border border-[#c8d9e4] min-h-[150px] px-2 my-3 md:px-0">
+    <div className="mx-5 border border-[#c8d9e4] min-h-[150px] px-2 my-3 md:px-0 shadow rounded">
       <div className="flex flex-col md:flex-row gap-x-6 justify-between items-left md:items-center p-2 min-h-[150px]">
         <div className="flex gap-x-6 justify-evenly items-center">
           <Link href={`/products/${_id}`} className="text-8xl">
@@ -58,14 +65,30 @@ export default function HorizontalProductCard({ product }) {
                   </button>
                 </div>
               </div>
+              {originalPrice && (
+                <div className="flex gap-3 justify-start">
+                  <p className="text-base font-bold">
+                    MPR:{" "}
+                    <span className="line-through">
+                      &#2547;{fixedFloatValue(originalPrice)}
+                    </span>
+                  </p>
+                  <p className="text-base font-medium text-green-500">
+                    {getDiscountedPricePercentage(originalPrice, price)}% off
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         <div className="p-2 flex flex-col items-end justify-between gap-3">
-          <p className="md:border md:py-1 px-2 md:bg-gray-100 rounded-sm font-semibold">
-            &#2547;{fixedFloatValue(price)}
-          </p>
+          <div className="flex items-center mt-4 gap-4">
+            <p className="mr-2 text-lg font-semibold">
+              {originalPrice ? "Discount Price" : "MRP"} : &#2547;
+              {fixedFloatValue(price)}
+            </p>
+          </div>
           <div className="flex gap-2 md:flex-col justify-between items-center md:justify-normal">
             <button
               className="md:w-full border px-4 md:px-6 md:text-2xl py-1 border-[#52ab98] text-[#52ab98] hover:bg-[#52ab98] hover:text-[#fff] transition-transform active:scale-95 hover:opacity-75 rounded shadow"
