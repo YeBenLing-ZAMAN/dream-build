@@ -50,6 +50,10 @@ Some screenshots of the project from different types of users are available in t
 ![](./ScreenShot/featured-product.jpg)
 ![](./ScreenShot/catagory.jpg)
 
+#### cart page:
+![](./ScreenShot/cart.jpg)
+
+
 #### Pc-Building page (only login user):
 
 ![](./ScreenShot/pcbuilder.jpg)
